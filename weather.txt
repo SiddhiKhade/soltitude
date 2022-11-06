@@ -7,7 +7,6 @@ temp_desc varchar(20)
 insert into temperature values (1, '5 to 20' , 'cold');
 insert into temperature values (2, '5 to 20' , 'cold');
 insert into temperature values (3, '3 to 17' , 'cold');
-insert into temperature values (4, '3 to 17' , 'cold');
 
 select * from temperature;
 
@@ -21,7 +20,6 @@ state varchar(50)
 insert into region values(1, '30 N', 'Mumbai', 'Maha');
 insert into region values(2, '20 S', 'Kolkata', 'Karnataka');
 insert into region values(3, '23 W', 'Bangalore', 'Karnataka');
-insert into region values(4, '15 E', 'Chennai', 'TN');
 
 select * from region;
 
@@ -35,7 +33,6 @@ prec_desc varchar(30)
 insert into prec values(1, '20-30mm', 'high');
 insert into prec values(2, '10-15mm', 'med');
 insert into prec values(3, '35-45mm', 'very high');
-insert into prec values(4, '5-15mm', 'low');
 
 select * from prec;
 
@@ -51,12 +48,11 @@ insert into fact (temp_id, reg_id, prec_id)SELECT temperature.temp_id, region.re
 UPDATE fact set area=100 where reg_id=1;
 UPDATE fact set area=200 where reg_id=2;
 UPDATE fact set area=300 where reg_id=3;
-UPDATE fact set area=400 where reg_id=4;
 
 select * from fact;
 
 --slice
-select city, area from fact inner join region on fact.reg_id = region.reg_id where city = 'Chennai';
+select city, area from fact inner join region on fact.reg_id = region.reg_id where city = 'Mumbai';
 
 
 --dice
